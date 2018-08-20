@@ -1,0 +1,27 @@
+{
+  "name": "vue-np-cli",
+  "version": "1.0.0",
+  "description": "vue Naclplus cli",
+  "main": "index.js",
+  "bin": {
+    "np": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Naclplus/vue-np-cli.git"
+  },
+  "keywords": [
+    "cli"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "1259678404@qq.com",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.17.1",
+    "git-clone": "^0.1.0",
+    "shelljs": "^0.8.2",
+    "tracer": "^0.9.1"
+  }
+}
