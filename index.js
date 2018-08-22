@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+const fs = require('fs');
 const clone = require('git-clone')
 const program = require('commander')
 const shell = require('shelljs');
@@ -7,22 +7,13 @@ const log = require('tracer').colorConsole()
 
 
 program
-    .version('1.0.0')
-    .description('xserver中间件应用模板工程的cli')
-program
-    .command('* <tpl> <project>')
-    .action(function(tpl, project) {
-        log.info('目前xserver-cli支持以下模板：')
-        log.info('使用例子：x-cli x-express myproject')
-        if (tpl && project) {
-            let pwd = shell.pwd()
-            log.info(`正在拉取模板代码，下载位置：${pwd}/${project}/ ...`)
-            clone(`https://github.com/cheneyweb/${tpl}.git`, pwd + `/${project}`, null, function() {
-                shell.rm('-rf', pwd + `/${project}/.git`)
-                log.info('模板工程建立完成')
-            })
-        } else {
-            log.error('正确命令例子：x-cli x-express myproject')
-        }
+.command('init <dir>')
+.action(function (dir) {
+    let pwd = shell.pwd()
+    clone(`https://github.com/Naclplus/vue-np-template.git`, pwd + `/${dir}`, null, function() {
+        shell.rm('-rf', pwd + `/${dir}/.git`)
+        log.info('模板工程建立完成')
     })
+})
+
 program.parse(process.argv)
